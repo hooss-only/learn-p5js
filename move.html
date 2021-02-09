@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+    <title>Play with p5.js</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0
+        }
+    </style>
+    <script>
+        function setup(){
+            createCanvas(windowWidth, windowHeight);
+            px = 0
+            py = 0
+            x = 0
+            y = 0
+            size = random(50, 100)
+        }
+
+        function draw(){
+            background(0)
+            px = x
+            py = y
+            stroke(0, 0, 0, 0)
+            circle(x, y, 50)
+            rect(100, 200, size)
+            if (keyIsDown(UP_ARROW)) {
+                y-=10;
+            }
+            if (keyIsDown(DOWN_ARROW)) {
+                y+=10;
+            }
+            if (keyIsDown(LEFT_ARROW)) {
+                x-=10;
+            }
+            if (keyIsDown(RIGHT_ARROW)) {
+                x+=10;
+            }
+            if ((x > 100 && x < 100 + size) && (y > 200 && y < 200 + size)){
+                x = px
+                y = py
+            }
+            if (x < 0 || x > windowWidth){
+                x = px
+            }
+            if (y < 0 || y > windowWidth){
+                y = py
+            }
+            console.log(x)
+            console.log(y)
+        }
+    </script>
+</body>
+</html>
