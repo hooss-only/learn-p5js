@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+    <title>Play with p5.js</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0
+        }
+    </style>
+    <script>
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            background(0)
+            penColor = 255
+            black = false
+            }
+
+            function draw() {
+            if (mouseIsPressed){
+                pa = pow(mouseX-pmouseX,2)
+                py = pow(mouseY-pmouseY,2)
+                speed = sqrt(pa+py)
+                stroke(penColor)
+                strokeWeight(speed)
+                line(pmouseX, pmouseY, mouseX, mouseY)
+            }
+            }
+
+            function keyPressed() {
+            if (key === " ") {
+                background(0)
+            }
+            if (key === "a"){
+                if (black){
+                penColor = 255
+                black = false
+                } else {
+                penColor = 0
+                black = true
+                }
+            }
+        }
+    </script>
+</body>
+</html>
